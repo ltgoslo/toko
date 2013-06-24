@@ -129,8 +129,7 @@ class Token(object):
             self.__spaces.append(0)
             self.__sub_tokens_cats.append(prev_cat)
             if not(self.__form[begin:index].isspace()):
-                self.__sub_tokens.append(self.__form[begin:index])
-                print index
+                self.__sub_tokens.append(self.__form[begin:index])                
 
         if len(self.__spaces) == ( len(self.__sub_tokens) - 1 ):
             self.__spaces.append(0)
@@ -138,7 +137,7 @@ class Token(object):
             raise Exception, 'Something went wrong in subtokenizing, token.py'
 
         self.__tokenize_contractions()
-        return self.__sub_tokens, self.__sub_tokens_cats
+        return self.__sub_tokens, self.__sub_tokens_cats, self.__spaces
 
 
     def __same_category(self, prev, current):
