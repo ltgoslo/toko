@@ -30,15 +30,14 @@ def subtokenize_file(file_name):
     
 
 def call_wapiti():
-    #wapiti_dir = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe()))) + '/../bin/wapiti-1.4.0/'
-    print wapiti_dir
-
-#def main():
+    wapiti_dir = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe()))) + '/../bin/wapiti-1.4.0/'
+    #print wapiti_dir
+    
     #subprocess.check_output(["./wapiti"])
     #subprocess.call(["./wapiti-1.4.0/wapiti"])
     #print(a)
     
     #wapiti_dir = os.getcwd() + '/wapiti-1.4.0/'
-    #args = ['./wapiti']
-    #subprocess.Popen(args,cwd=wapiti_dir)
+    args = ['./wapiti', 'label', '-m']
+    subprocess.Popen(args,cwd=wapiti_dir)
     
