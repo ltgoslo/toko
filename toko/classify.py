@@ -9,6 +9,7 @@ import inspect
 
 def classify_file(file_name):
     subtokenize_file(file_name)
+    call_wapiti(file_name + ".subtks")
 
 
 def subtokenize_file(file_name):
@@ -29,7 +30,7 @@ def subtokenize_file(file_name):
     subtk_file.close()
     
 
-def call_wapiti():
+def call_wapiti(file_name):
     wapiti_dir = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe()))) + '/../bin/wapiti-1.4.0/'
     #print wapiti_dir
     
@@ -38,6 +39,6 @@ def call_wapiti():
     #print(a)
     
     #wapiti_dir = os.getcwd() + '/wapiti-1.4.0/'
-    args = ['./wapiti', 'label', '-m']
+    args = ['./wapiti', 'label', '-m', 'ptb.model']
     subprocess.Popen(args,cwd=wapiti_dir)
     

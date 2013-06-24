@@ -31,7 +31,7 @@ def main():
 
     #for i in range(len(subtokens)):
     #    print subtokens[i], '\t', categories[i], '\t', spaces[i], '\t'
-    call_wapiti()
+    call_wapiti("test")
 
     #subtokenize_file(sys.argv[1])
 
