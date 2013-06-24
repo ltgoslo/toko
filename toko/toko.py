@@ -24,11 +24,14 @@ def subtokenize_file(file_name):
         
 
 def main():
-    #t = Token("But Congress didn't anticipate or intend more public debt, say opponents of the RTC's working-capital plan, and Rep. Charles Schumer (D., N.Y.) said the RTC Oversight Board has been remiss in not keeping Congress informed.")
-    #subtokens, categories, spaces = t.subtokenize()
+    t = Token("But Congress didn't anticipate or intend more public debt, say opponents of the RTC's working-capital plan, and Rep. Charles Schumer (D., N.Y.) said the RTC Oversight Board has been remiss in not keeping Congress informed.")
+    t = Token("He Cannot go to school, today! Wow, why he wouldn't?")
+    subtokens, categories, spaces = t.subtokenize()
 
-    #for i in range(len(subtokens)):
-    #    print subtokens[i], '\t', categories[i], '\t', spaces[i], '\t'
+    for i in range(len(subtokens)):
+        print subtokens[i], '\t', categories[i], '\t', spaces[i], '\t'
+
+
     subtokenize_file(sys.argv[1])
     
 if __name__ == '__main__':

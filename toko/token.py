@@ -63,7 +63,7 @@ class Token(object):
             category = "CP"
             
         elif ch == ',':
-            category = "comma"
+            category = "coma"
             
         elif ch == '.':
             category = "dot"
@@ -176,7 +176,7 @@ class Token(object):
             elif self.__sub_tokens[i] in self.__ptb_special_cases:
                 new_sub_tokens.append(self.__sub_tokens[i][0:3])
                 new_sub_tokens.append(self.__sub_tokens[i][3:])
-                self.__spaces.insert(len(new_sub_tokens) - 1, 0)            
+                self.__spaces.insert(len(new_sub_tokens) - 2, 0)            
                 self.__sub_tokens_cats.insert(len(new_sub_tokens) - 1, \
                                               self.__get_category(self.__sub_tokens[i][-1]))
                                               
@@ -193,7 +193,7 @@ class Token(object):
                     new_sub_tokens.append(self.__sub_tokens[i][0:3])
                     new_sub_tokens.append(self.__sub_tokens[i][3:])
                     self.__spaces.insert( len(new_sub_tokens) - 1, 0)            
-                    self.__sub_tokens_cats.insert( len(new_sub_tokens) - 1,\
+                    self.__sub_tokens_cats.insert( len(new_sub_tokens) - 2,\
                                                   self.__get_category(self.__sub_tokens[i][-1]))
                 else:
                     new_sub_tokens.append(self.__sub_tokens[i])
