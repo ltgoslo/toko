@@ -1,10 +1,16 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from argparse import ArgumentParser
+older_version = False
+try:
+    from argparse import ArgumentParser
+except ImportError:
+    print "argpase is not available, please ..."
+    older_version = True
+        
 from subtoken import Subtoken
 import classify
-from classify import call_wapiti
+from classify import call_wapiti, classify_file
 import sys
 
 def subtokenize_file(file_name):
@@ -31,30 +37,32 @@ def main():
 
     #for i in range(len(subtokens)):
     #    print subtokens[i], '\t', categories[i], '\t', spaces[i], '\t'
-    call_wapiti("test")
 
     #subtokenize_file(sys.argv[1])
+    if older_version:
+        print "old"
+        classify_file(sys.argv[1])
+    else:
+        argparser = ArgumentParser(description=__doc__)
+        argparser.add_argument('files', nargs='*',
+                               help='a (list of) file(s) to tokenize')
+        #argparser.add_argument('--accounting', action='store_true',
+        #                       help='output an account of modifications made to the original segment')
+        argparser.add_argument('--delimiter', default='\n',
+                               help='specify a delimiter for token boundaries')
+        argparser.add_argument('--paragraph-mode', action='store_true',
+                               help='force segmentation at double newlines')
+        argparser.add_argument('--model', 
+                               help='path to *Wapiti* model')
 
-    argparser = ArgumentParser(description=__doc__)
-    argparser.add_argument('files', nargs='*',
-                           help='a (list of) file(s) to tokenize')
-    #argparser.add_argument('--accounting', action='store_true',
-    #                       help='output an account of modifications made to the original segment')
-    argparser.add_argument('--delimiter', default='\n',
-                           help='specify a delimiter for token boundaries')
-    argparser.add_argument('--paragraph-mode', action='store_true',
-                           help='force segmentation at double newlines')
-    argparser.add_argument('--model',
-                           help='path to *Wapiti* model')
-
-    args = argparser.parse_args()
-    
-    pattern = None
-
-    #for path in args.files:
-    #    process(path, pattern, config)
-    print args.delimiter
-    print args
+        args = argparser.parse_args()
+        
+        pattern = None
+        
+        #for path in args.files:
+        #    process(path, pattern, config)
+        print args.delimiter
+        print args
     
 if __name__ == '__main__':
     main()
