@@ -24,6 +24,7 @@ if osname == "Linux":
         #'install_requires': ['argparse'],
         'packages': find_packages(),
         'scripts': ['bin/tokenize.py'],
+        'include_package_data' : True,
         'name': 'toko'
         #entry_points = {
         #    'console_scripts': ['funniest-joke=funniest.command_line:main'],
