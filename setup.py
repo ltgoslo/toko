@@ -8,6 +8,8 @@ except ImportError:
 
 osname = os.uname()[0]
 
+#toko_package_data = []
+
 def readme():
     with open('README.rst') as f:
         return f.read()
@@ -25,6 +27,7 @@ if osname == "Linux":
         'packages': find_packages(),
         'scripts': ['bin/tokenize.py'],
         'include_package_data' : True,
+    #'package_data' : toko_package_data,
         'name': 'toko'
         #entry_points = {
         #    'console_scripts': ['funniest-joke=funniest.command_line:main'],

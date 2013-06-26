@@ -8,7 +8,7 @@ except ImportError:
     print "argpase is not available, please ..."
     older_version = True
 
-#import classify
+
 from toko.classify import classify_file
 import sys
 
@@ -16,7 +16,7 @@ import sys
 def main():
     if older_version:
         print "old"
-        classify_file(sys.argv[1])
+        toko.classify_file(sys.argv[1])
     else:
         classify_file(sys.argv[1])
         argparser = ArgumentParser(description=__doc__)

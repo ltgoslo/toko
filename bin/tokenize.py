@@ -9,7 +9,7 @@ except ImportError:
     older_version = True
 
 
-from toko import classify_file
+from toko.classify import classify_file
 import sys
 
 

@@ -2,13 +2,13 @@ MANIFEST.in
 README.rst
 setup.py
 bin/tokenize.py
+bin/tokenize.pyc
 bin/tokenize.py~
 tests/__init__.py
 tmp/tmp
 toko/__init__.py
 toko/classify.py
 toko/subtoken.py
-toko/toko.py
 toko.egg-info/PKG-INFO
 toko.egg-info/SOURCES.txt
 toko.egg-info/dependency_links.txt
