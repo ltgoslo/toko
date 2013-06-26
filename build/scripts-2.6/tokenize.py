@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/python
 # -*- coding: utf-8 -*-
 
 older_version = False
@@ -7,29 +7,11 @@ try:
 except ImportError:
     print "argpase is not available, please ..."
     older_version = True
-        
-from subtoken import Subtoken
-import classify
-from classify import call_wapiti, classify_file
+
+#import classify
+from toko.classify import classify_file
 import sys
 
-def subtokenize_file(file_name):
-    subtk_file = open(file_name + ".subtks", "w")
-    raw_lines = [line for line in open(file_name)]
-    
-    for line in raw_lines:
-        line_splits = line.split("\t") #0: ID, 1: sentence
-        t = Subtoken(line_splits[1][0:-1]) # [0:-1] to remove the `\n'
-        subtokens, categories, spaces = t.subtokenize()
-
-        for i in range(len(subtokens)):
-            subtk_line = line_splits[0] + '\t' + subtokens[i] + '\t' + str(spaces[i]) + '\t'+ categories[i] + '\t'
-            subtk_file.write(subtk_line)
-            subtk_file.write('\n')
-        subtk_file.write('\n')
-
-    subtk_file.close()
-        
 
 def main():
     if older_version:

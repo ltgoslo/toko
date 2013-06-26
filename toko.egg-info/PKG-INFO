@@ -1,0 +1,19 @@
+Metadata-Version: 1.0
+Name: toko
+Version: 0.1.0
+Summary: PTB Tokenization
+Home-page: https://github.com/Murhaf/toko
+Author: murhaff
+Author-email: murhaff@ifi.uio.no
+License: UNKNOWN
+Download-URL: https://github.com/Murhaf/toko
+Description: toko
+        --------
+        
+        To use (with caution), simply do::
+        
+            >>> import toko
+            >>> toko.tokenize_file()
+            >>> toko.tokenize_sentence()
+        
+Platform: UNKNOWN
