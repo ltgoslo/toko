@@ -17,7 +17,7 @@ def classify_file(file_name):
     write_output(file_name+"tokens", result)
 
 def subtokenize_file(file_name):
-    subtk_file = open("../tmp/tmp.subtks", "w")
+    subtk_file = open(os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))+"/../tmp/tmp.subtks", "w")
     raw_lines = [line for line in open(file_name)]
     
     for line in raw_lines:
@@ -40,25 +40,24 @@ def call_wapiti():
     input_path = "../../tmp/tmp.subtks"
     
     args = ['./wapiti', 'label', '-m', 'ptb.model', input_path]
-    wapiti_proc = subprocess.Popen(args,cwd=wapiti_dir, stdout=PIPE)
+    wapiti_proc = subprocess.Popen(args,cwd=wapiti_dir, stdout=PIPE, stderr=PIPE)
 
     return wapiti_proc.stdout.readlines()
 
 
 
-def write_output(out_file_name, wapiti_ouptut):
+def write_output(out_file_name, wapiti_output):
     out_file = open(out_file_name, "w")
     word = ""
 
-    for l in wapiti_ouptut:
-        columns = l.split("\t")
-        word = ""
+    for l in wapiti_output:
+        columns = l.split("\t")        
         
         if len(columns) < 2:
             out_file.write('\n')
 
         else:
-            if columns[-1] == "SPLIT":
+            if columns[-1][0:-1] == "SPLIT":
                 word += columns[1]
                 out_file.write(word)
                 out_file.write(delimiter)
