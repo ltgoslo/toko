@@ -11,6 +11,7 @@ osname = os.uname()[0]
 if osname == "Linux":
     config = {
         'description': 'PTB Tokenization',
+        long_description=readme(),
         'author': 'murhaff',
         'url': 'https://github.com/Murhaf/toko',
         'download_url': 'https://github.com/Murhaf/toko',
