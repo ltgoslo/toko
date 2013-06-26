@@ -9,14 +9,14 @@ except ImportError:
     older_version = True
 
 
-from toko.classify import classify_file
+from toko.wpclassify import wp_classify_file
 import sys
 
 
 def main():
     if older_version:
         print "old"
-        toko.classify_file(sys.argv[1])
+        toko.wp_classify_file(sys.argv[1])
     else:
         classify_file(sys.argv[1])
         argparser = ArgumentParser(description=__doc__)

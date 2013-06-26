@@ -12,7 +12,7 @@ import inspect
 
 delimiter = '\n'
 
-def classify_file(file_name):
+def wp_classify_file(file_name):
     '''
     takes a `raw' file as an input (one sentence per line) and outputs
     a file (.tokens) with one token per line and empty lines between
@@ -24,7 +24,7 @@ def classify_file(file_name):
     os.remove(wp_file)
 
 def subtokenize_file(file_name):
-    wp_file_name = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))+"/../tmp/tmp.subtks"
+    wp_file_name = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))+"tmp.subtks"
     subtk_file = open(wp_file_name, "w")
     raw_lines = [line for line in open(file_name)]
     
@@ -86,3 +86,5 @@ def write_output(out_file_name, wapiti_output):
     
     
     
+def wp_classify():
+    wp_classify_file(sys.argv[1])

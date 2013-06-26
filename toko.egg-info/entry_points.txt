@@ -1,0 +1,3 @@
+[console_scripts]
+tokenize-file = toko.wpclassify:wp_classify
+

@@ -9,6 +9,7 @@ except ImportError:
 osname = os.uname()[0]
 
 #toko_package_data = []
+toko_entry_points = {'console_scripts': ['tokenize-file=toko.wpclassify:wp_classify'],}
 
 def readme():
     with open('README.rst') as f:
@@ -25,13 +26,11 @@ if osname == "Linux":
         'version': '0.1.0',
         #'install_requires': ['argparse'],
         'packages': find_packages(),
-        'scripts': ['bin/tokenize.py'],
+    #'scripts': [''],
         'include_package_data' : True,
     #'package_data' : toko_package_data,
-        'name': 'toko'
-        #entry_points = {
-        #    'console_scripts': ['funniest-joke=funniest.command_line:main'],
-        #    }
+        'name': 'toko',
+        'entry_points': toko_entry_points
         }
 
 
