@@ -6,6 +6,7 @@ bin/tokofile.py
 tmp/tmp
 toko/__init__.py
 toko/subtoken.py
+toko/tokosettings.py
 toko/wpclassify.py
 toko.egg-info/PKG-INFO
 toko.egg-info/SOURCES.txt

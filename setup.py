@@ -8,7 +8,9 @@ except ImportError:
 
 osname = os.uname()[0]
 
-#toko_package_data = []
+toko_data_files= [('models', ['models/ptb.model']),
+                  ('data', ['etc/data/test.raw'])]
+toko_package_data = {'toko': ['models/*.model']}
 toko_entry_points = {'console_scripts': ['tokenize-file=toko.wpclassify:wp_classify'],}
 
 def readme():
@@ -26,9 +28,9 @@ if osname == "Linux":
         'version': '0.1.0',
         #'install_requires': ['argparse'],
         'packages': find_packages(),
-    #'scripts': [''],
+        'data_files' : toko_data_files,
         'include_package_data' : True,
-    #'package_data' : toko_package_data,
+        'package_data' : toko_package_data,
         'name': 'toko',
         'entry_points': toko_entry_points
         }
