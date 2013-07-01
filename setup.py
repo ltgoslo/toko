@@ -9,7 +9,8 @@ except ImportError:
 osname = os.uname()[0]
 
 toko_data_files= [('models', ['models/ptb.model']),
-                  ('data', ['etc/data/test.raw'])]
+                  ('data', ['etc/data/test.raw']),
+                  ('config', ['config/tokosettings'])]
 toko_package_data = {'toko': ['models/*.model']}
 toko_entry_points = {'console_scripts': ['tokenize-file=toko.wpclassify:wp_classify'],}
 
