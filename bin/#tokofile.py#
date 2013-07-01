@@ -1,0 +1,40 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+#import toko
+
+older_version = False
+try:
+    from argparse import ArgumentParser
+except ImportError:
+    older_version = True
+
+
+from toko.wpclassify import wp_classify_file
+import sys
+
+
+def main():
+    if older_version:
+        print "old"
+        toko.wp_classify_file(sys.argv[1])
+    else:
+        classify_file(sys.argv[1])
+        argparser = ArgumentParser(description=__doc__)
+        argparser.add_argument('file', nargs='*',
+                               help='a file to tokenize')
+        argparser.add_argument('--delimiter', default='\n',
+                               help='specify a delimiter for token boundaries')
+        argparser.add_argument('--model', 
+                               help='path to *Wapiti* model')
+
+        args = argparser.parse_args()
+        
+        pattern = None
+        
+        #for path in args.files:
+        #    process(path, pattern, config)
+        #print args.delimiter
+    
+if __name__ == '__main__':
+    main()

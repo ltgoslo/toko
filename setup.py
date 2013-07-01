@@ -32,7 +32,8 @@ if osname == "Linux":
         'include_package_data' : True,
         'package_data' : toko_package_data,
         'name': 'toko',
-        'entry_points': toko_entry_points
+        'entry_points': toko_entry_points,
+        'zip_safe' : False
         }
 
 

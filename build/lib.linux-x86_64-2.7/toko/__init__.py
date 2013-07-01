@@ -1,1 +1,1 @@
-__all__ = ['toko', 'subtoken', 'classify']
+__all__ = ['subtoken', 'wpclassify', 'tokosettings']

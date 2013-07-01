@@ -12,4 +12,5 @@ toko.egg-info/PKG-INFO
 toko.egg-info/SOURCES.txt
 toko.egg-info/dependency_links.txt
 toko.egg-info/entry_points.txt
+toko.egg-info/not-zip-safe
 toko.egg-info/top_level.txt
