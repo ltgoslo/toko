@@ -13,6 +13,7 @@ toko_data_files= [('models', ['models/ptb.model']),
                   ('config', ['config/tokosettings'])]
 toko_package_data = {'toko': ['models/*.model']}
 toko_entry_points = {'console_scripts': ['tokenize-file=toko.wpclassify:wp_classify'],}
+toko_entry_points = {'console_scripts': ['tokenize-file=toko.tokofile:main'],}
 
 def readme():
     with open('README.rst') as f:

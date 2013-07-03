@@ -20,7 +20,7 @@ def wpconfig(wapiti_path):
     config_file.close()
 
 def tokofile(file_path):
-    wp_classify_file(file_path)
+    wp_oclassify_file(file_path)
 
 def main():
 
@@ -52,8 +52,7 @@ def main():
         print "produce training files"
 
     elif args.mode == "tokenize":
-        for input_file in args.file:
-            tokofile(input_file)
+        tokofile(args.file)
         print "tokenizing"
 
     else:

@@ -1,11 +1,10 @@
 MANIFEST.in
 README.rst
 setup.py
-bin/tokenize.py~
-bin/tokofile.py
 tmp/tmp
 toko/__init__.py
 toko/subtoken.py
+toko/tokofile.py
 toko/wpclassify.py
 toko.egg-info/PKG-INFO
 toko.egg-info/SOURCES.txt

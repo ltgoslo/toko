@@ -2,19 +2,17 @@
 
 
 import os
-from os import remove
 import sys
 import subprocess
 from subprocess import Popen, PIPE
 from subtoken import Subtoken
 import inspect
 
-sys.path.insert(0, '/home/murhaf/msc/toko/config/')
-import tokosettings
-
+#import tokosettings
 
 delimiter = '\n'
-wapiti_dir = tokosettings.config['wapiti']
+toko_path = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe()))) + "/"
+
 
 def wp_classify_file(file_name):
     '''
@@ -49,8 +47,11 @@ def subtokenize_file(file_name):
 
 def call_wapiti(wp_file_name):    
     input_path = wp_file_name
+
     wp_model = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe()))) + '/../models/ptb.model'
-    
+
+    wapiti_dir = open(toko_path+'tokoconfig').read()
+
     args = ['./wapiti', 'label', '-m', wp_model, input_path]
     wapiti_proc = subprocess.Popen(args,cwd=wapiti_dir, stdout=PIPE)#, stderr=PIPE)
     
