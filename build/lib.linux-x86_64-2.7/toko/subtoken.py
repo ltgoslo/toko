@@ -1,11 +1,6 @@
 # -*- coding: utf-8 -*-
 
 class Subtoken(object):
-    '''
-    Summary
-    
-    
-    '''
     
     
     def __init__(self, form):

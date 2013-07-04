@@ -1,7 +1,5 @@
-MANIFEST.in
 README.rst
 setup.py
-tmp/tmp
 toko/__init__.py
 toko/subtoken.py
 toko/tokofile.py

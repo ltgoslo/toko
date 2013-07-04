@@ -9,11 +9,10 @@ except ImportError:
 osname = os.uname()[0]
 
 toko_data_files= [('models', ['models/ptb.model']),
-                  ('data', ['etc/data/test.raw']),
-                  ('config', ['config/tokosettings'])]
+                  ('data', ['etc/data/test.raw'])]
 toko_package_data = {'toko': ['models/*.model']}
-toko_entry_points = {'console_scripts': ['tokenize-file=toko.wpclassify:wp_classify'],}
-toko_entry_points = {'console_scripts': ['tokenize-file=toko.tokofile:main'],}
+
+toko_entry_points = {'console_scripts': ['toko-file=toko.tokofile:main'],}
 
 def readme():
     with open('README.rst') as f:
@@ -21,7 +20,7 @@ def readme():
 
 if osname == "Linux":
     config = {
-        'description': 'PTB Tokenization',
+        'description': 'ML-based Tokenization',
         'long_description': readme(),
         'author': 'murhaff',
         'url': 'https://github.com/Murhaf/toko',

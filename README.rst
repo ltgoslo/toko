@@ -4,13 +4,27 @@ toko
 To use (with caution), simply do::
 
     >>> import toko
-    >>> toko.tokenize_file()
+    >>> toko.wpclassify.wp_classify_file()
     >>> toko.tokenize_sentence()
 
 
 Notes:
-1) Please use absolute pathes all the time, especially for Wapiti
+1) Please use absolute paths all the time, especially for Wapiti
 models because the Wapiti path might be different from that of the
 tokenizer.
 
 
+The package runs in three modes: (1) config (2) tokenize and (3)
+train.
+
+---- config:
+To permanently set the path of Wapiti, you can use:
+python toko config --wapiti /full/path/to/wapiti
+
+After doing this there will be no need to pass the wapiti path with
+the 'tokenize' mode, however if you haven't permanently set the path
+to wapiti you must pass the argument --wapiti. 
+
+---- tokenize:
+In this mode toko expects a file to tokenize with several optional
+arguments
