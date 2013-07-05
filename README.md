@@ -38,15 +38,17 @@ arguments
 
 http://dl.acm.org/citation.cfm?id=2468243
 
-@inproceedings{Far:Oep:Zha:13,
- author = {Fares, Murhaf and Oepen, Stephan and Zhang, Yi},
- title = {Machine learning for high-quality tokenization replicating variable tokenization schemes},
- booktitle = {Proceedings of the 14th international conference on Computational Linguistics and Intelligent Text Processing - Volume Part I},
- year = {2013},
- isbn = {978-3-642-37246-9},
- location = {Samos, Greece},
- pages = {231--244}, 
- publisher = {Springer-Verlag},
- address = {Berlin, Heidelberg},
-} 
+```LaTeX
+    @inproceedings{Far:Oep:Zha:13,
+        author = {Fares, Murhaf and Oepen, Stephan and Zhang, Yi},
+        title = {Machine learning for high-quality tokenization replicating variable tokenization schemes},
+        booktitle = {Proceedings of the 14th international conference on Computational Linguistics and Intelligent Text Processing - Volume Part I},
+        year = {2013},
+        isbn = {978-3-642-37246-9},
+        location = {Samos, Greece},
+        pages = {231--244}, 
+        publisher = {Springer-Verlag},
+        address = {Berlin, Heidelberg},
+    }
+```
 
