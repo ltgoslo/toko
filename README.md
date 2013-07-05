@@ -15,9 +15,9 @@ tokenizer.
 
 
 The package runs in three modes: 
-    1. config 
-    2. tokenize 
-    3. train
+    1.  config 
+    2.  tokenize 
+    3.  train
 
 ### config
 To permanently set the path of Wapiti, you can use::
