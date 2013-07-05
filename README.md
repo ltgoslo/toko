@@ -35,8 +35,7 @@ to wapiti you must pass the argument --wapiti.
 In this mode toko expects a file to tokenize with several optional
 arguments
 
-
-http://dl.acm.org/citation.cfm?id=2468243
+### References
 
 ```LaTeX
     @inproceedings{Far:Oep:Zha:13,
