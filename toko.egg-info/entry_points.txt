@@ -1,3 +1,0 @@
-[console_scripts]
-toko = toko.toko:main
-
