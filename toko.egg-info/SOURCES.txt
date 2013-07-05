@@ -2,7 +2,7 @@ README.rst
 setup.py
 toko/__init__.py
 toko/subtoken.py
-toko/tokofile.py
+toko/toko.py
 toko/wpclassify.py
 toko.egg-info/PKG-INFO
 toko.egg-info/SOURCES.txt

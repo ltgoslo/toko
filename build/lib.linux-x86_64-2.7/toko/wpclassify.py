@@ -10,7 +10,7 @@ import inspect
 toko_path = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe()))) + "/"
 
 
-def wp_classify_file(file_name, wapiti_path, wp_model, delimiter):
+def toko_file(file_name, wapiti_path, wp_model, delimiter):
     '''
     takes a `raw' file as an input (one sentence per line) and outputs
     a file (.tokens) with one token per line and empty lines between
@@ -74,8 +74,18 @@ def subtokenize_file(file_name):
     subtk_file.close()
     return wp_file_name
 
-def call_wapiti(wp_file_name, wapiti_path, wp_model):
 
+
+def call_wapiti(wp_file_name, wapiti_path, wp_model):
+    '''
+    calls wapiti to classify the subtokens.
+    - wp_file_name -- the file containing subtokens
+    - wapiti_path -- path to wapiti toolkit, if passed then it will be
+    used even if the wapiti path has been previously set through
+    'config'.
+    - wp_model -- the tokenization model to be used, if None is passed
+    then the PTB model will be used.
+    '''
     input_path = wp_file_name
 
     if wp_model is None:
@@ -95,10 +105,11 @@ def call_wapiti(wp_file_name, wapiti_path, wp_model):
 
 
 
+
 def write_output(out_file_name, wapiti_output, delimiter):
     '''
     reads the output of wapiti and writes a new file with each token
-    on one line    
+    on one line. 
     '''
     if delimiter is None:
         delimiter = '\n'
@@ -124,12 +135,3 @@ def write_output(out_file_name, wapiti_output, delimiter):
                 
     out_file.close()
         
-    
-    
-def wp_classify():
-    wp_classify_file(sys.argv[1])
-
-
-    
-if __name__ == '__main__':
-    wp_classify()

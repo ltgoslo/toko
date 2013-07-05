@@ -7,12 +7,12 @@ class Subtoken(object):
         '''
         Construct a new Token instance
 
-        form --- basically a sentence (whatever is written on each
+        - form - basically a sentence (whatever is written on each
         line of the input file)
-        __spaces --- a list of 0s and 1s indicating whether a subtoken
+        - __spaces -- a list of 0s and 1s indicating whether a subtoken
         is followed by a whitespace.
-        __sub_tokens --- a list of strings (subtokens)
-        __sub_tokens_cat --- a list of strings indicating the
+        - __sub_tokens -- a list of strings (subtokens)
+        - __sub_tokens_cat -- a list of strings indicating the
         character classes of the subtokens in __sub_tokens
         '''
         self.__form = form
@@ -26,16 +26,17 @@ class Subtoken(object):
 
     def __get_category(self, ch):
         '''
-        given a character, returns its class if the character doens't
-        belong to any class, then its class will be the character
-        itself.
+        given a character, __get_category returns its class if the
+        character doens't belong to any class, then its class will be
+        the character itself.
         
-        ch --- input character
+        - ch -- input character
         returns a `string', ch. class
         '''
 
-        category = ch
         # first, the category of any char. would be the char. itself.
+        category = ch
+
         
         if (ch.isupper() and ch.isalpha()):
             category = "alphaC"
@@ -100,10 +101,10 @@ class Subtoken(object):
         as the character class (ch. class) of the chars being read is
         the same the chars are grouped in one subtoken.
         returns: 
-        self.__sub_tokens --- a list of subtokens
-        self.__sub_tokens_cats --- a list of character classes
+        - self.__sub_tokens -- a list of subtokens
+        - self.__sub_tokens_cats -- a list of character classes
         (categories)
-        self.__spaces --- a list indicating whether or not the
+        - self.__spaces -- a list indicating whether or not the
         subtoken is followed by a space
         '''
         wasSpace = True
@@ -146,6 +147,10 @@ class Subtoken(object):
         elif len(self.__spaces) <> len(self.__sub_tokens):
             raise Exception, 'Something went wrong in subtokenizing, token.py'
 
+
+        # ===========================
+        # Handling contractions according to PTB conventions
+        # ===========================
         self.__tokenize_contractions()
         
 

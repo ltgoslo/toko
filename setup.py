@@ -10,9 +10,8 @@ osname = os.uname()[0]
 
 toko_data_files= [('models', ['models/ptb.model']),
                   ('data', ['etc/data/test.raw'])]
-toko_package_data = {'toko': ['models/*.model']}
 
-toko_entry_points = {'console_scripts': ['toko-file=toko.tokofile:main'],}
+toko_entry_points = {'console_scripts': ['toko=toko.toko:main'],}
 
 def readme():
     with open('README.rst') as f:
@@ -31,7 +30,7 @@ if osname == "Linux":
         'packages': find_packages(),
         'data_files' : toko_data_files,
         'include_package_data' : True,
-        'package_data' : toko_package_data,
+        #'package_data' : toko_package_data,
         'name': 'toko',
         'entry_points': toko_entry_points,
         'zip_safe' : False

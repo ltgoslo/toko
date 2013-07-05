@@ -1,3 +1,3 @@
 [console_scripts]
-toko-file = toko.tokofile:main
+toko = toko.toko:main
 
