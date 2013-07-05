@@ -1,25 +1,37 @@
 toko
---------
-
+========
 
 toko is a machine learning based tokenization tool described in [Fares et al. 2013](http://link.springer.com/chapter/10.1007%2F978-3-642-37247-6_19).
 
+
 Prerequisites:
+--------------
 
 * Python (versions 2.6 and 2.7 recommended)
 * Wapiti (http://wapiti.limsi.fr/)
+
+
+Installation
+--------------
+You can easily install toko as a python package (site-package) using the egg file already built or build the toko yourself.
+To build toko as an egg file, do (in toko dir):
+```sh
+    python setup.py bdist_egg
+```
+
+Then you can install the egg file using easy_install (for example). Assuming that you have already set the PYTHONPATH (in your .bashrc) to /home/user/mypythonpackages/, do:
+
+```sh
+    easy_install --install-dir /home/user/mypythonpackages/ dist/the-toko-egg-file.egg
+```
+If you cannot build the egg file, you can install the egg file provided with toko (you only need to run the previous command).
+
 
 To use (with caution), simply do::
 
     >>> import toko
     >>> toko.wpclassify.wp_classify_file()
     >>> toko.tokenize_sentence()
-
-
-Notes:
-1) Please use absolute paths all the time, especially for Wapiti
-models because the Wapiti path might be different from that of the
-tokenizer.
 
 
 The package runs in three modes: 
@@ -43,6 +55,13 @@ to wapiti you must pass the argument --wapiti.
 
 In this mode toko expects a file to tokenize with several optional
 arguments
+
+Notes
+----------
+1) Please use absolute paths all the time, especially for Wapiti
+models because the Wapiti path might be different from that of the
+tokenizer.
+
 
 ### References
 
