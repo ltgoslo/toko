@@ -21,6 +21,7 @@ The package runs in three modes:
 
 ### config
 To permanently set the path of Wapiti, you can use::
+
     python toko config --wapiti /full/path/to/wapiti
 
 
