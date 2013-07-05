@@ -61,8 +61,8 @@ arguments
 
 TODO
 ----------
-[] toko_sentence
-[] train mode
+- [ ] toko_sentence
+- [ ] train mode
 
 Notes
 ----------
