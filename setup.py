@@ -14,7 +14,7 @@ toko_data_files= [('models', ['models/ptb.model']),
 toko_entry_points = {'console_scripts': ['toko=toko.toko:main'],}
 
 def readme():
-    with open('README.rst') as f:
+    with open('README.md') as f:
         return f.read()
 
 if osname == "Linux":
