@@ -16,15 +16,16 @@ def toko_file(file_name, wapiti_path, wp_model, delimiter):
     a file (.tokens) with one token per line and empty lines between
     sentences
     '''
-    wp_file = subtokenize_file(file_name)
+    wp_file = label_subtokenize_file(file_name)
     result = call_wapiti(wp_file, wapiti_path, wp_model)
     write_output(file_name+".tokens", result, delimiter)
     os.remove(wp_file)
 
 
-def subtokenize_file(file_name):
+def label_subtokenize_file(file_name):
     '''
-    assumes an input file with one sentence per line, however it can
+    This method produces subtokens for the 'tokenize' mode (for labeling)
+    it assumes an input file with one sentence per line, however it can
     handle sentence-ID \tab sentence per line.
     If there is no sentence-ID the function will assign one for
     each.
@@ -38,34 +39,36 @@ def subtokenize_file(file_name):
     if len( raw_lines[0].split('\t') ) == 1:
         sentence_id = 0
         for line in raw_lines:
-            line_splits = line.split("\t") 
-            t = Subtoken(line_splits[0][0:-1]) # [0:-1] to remove the `\n'
-            subtokens, categories, spaces = t.subtokenize()
+            if len(line) > 0:
+                line_splits = line.split("\t") 
+                t = Subtoken(line_splits[0][0:-1]) # [0:-1] to remove the `\n'
+                subtokens, categories, spaces = t.subtokenize()
             
-            for i in range(len(subtokens)):
-                subtk_line = sentence_id + '\t' + \
-                    subtokens[i] + '\t' + str(spaces[i]) + \
-                    '\t'+ categories[i] + '\t' + str(len(subtokens[i])) +\
-                    '\t'
-                subtk_file.write(subtk_line)
+                for i in range(len(subtokens)):
+                    subtk_line = sentence_id + '\t' + \
+                        subtokens[i] + '\t' + str(spaces[i]) + \
+                        '\t'+ categories[i] + '\t' + str(len(subtokens[i])) +\
+                        '\t'
+                    subtk_file.write(subtk_line)
+                    subtk_file.write('\n')
+                sentence_id += 1
                 subtk_file.write('\n')
-            sentence_id += 1
-            subtk_file.write('\n')
 
     elif len( raw_lines[0].split('\t') ) == 2:
         for line in raw_lines:
-            line_splits = line.split("\t") 
-            t = Subtoken(line_splits[1][0:-1]) # [0:-1] to remove the `\n'
-            subtokens, categories, spaces = t.subtokenize()
+            if len(line) > 0:
+                line_splits = line.split("\t") 
+                t = Subtoken(line_splits[1][0:-1]) # [0:-1] to remove the `\n'
+                subtokens, categories, spaces = t.subtokenize()
 
-            for i in range(len(subtokens)):
-                subtk_line = line_splits[0] + '\t' + subtokens[i] +\
-                    '\t' + str(spaces[i]) +\
-                    '\t'+ categories[i] + '\t' + str(len(subtokens[i])) +\
-                    '\t'
-                subtk_file.write(subtk_line)
+                for i in range(len(subtokens)):
+                    subtk_line = line_splits[0] + '\t' + subtokens[i] +\
+                        '\t' + str(spaces[i]) +\
+                        '\t'+ categories[i] + '\t' + str(len(subtokens[i])) +\
+                        '\t'
+                    subtk_file.write(subtk_line)
+                    subtk_file.write('\n')
                 subtk_file.write('\n')
-            subtk_file.write('\n')
 
     else:
         print "toko is expecting one sentence per line or one sentence-ID and sentence per line (separated by a tab). Please double-check the input file."

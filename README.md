@@ -33,8 +33,10 @@ To use (with caution), simply do::
     >>> toko.wpclassify.wp_classify_file()
     >>> toko.tokenize_sentence()
 
+Running modes
+--------------
 
-The package runs in three modes: 
+toko runs in three modes: 
     *  config 
     *  tokenize 
     *  train
@@ -55,6 +57,12 @@ to wapiti you must pass the argument --wapiti.
 
 In this mode toko expects a file to tokenize with several optional
 arguments
+
+
+TODO
+----------
+[] toko_sentence
+[] train mode
 
 Notes
 ----------
