@@ -5,6 +5,7 @@ toko
 toko is a machine learning based tokenization tool described in [Fares et al. 2013](http://link.springer.com/chapter/10.1007%2F978-3-642-37247-6_19).
 
 Prerequisites:
+
 * Python (versions 2.6 and 2.7 recommended)
 * Wapiti (http://wapiti.limsi.fr/)
 
@@ -27,9 +28,10 @@ The package runs in three modes:
     *  train
 
 ### config
-To permanently set the path of Wapiti, you can use::
-
+To permanently set the path of Wapiti, you can use:
+```sh
     python toko config --wapiti /full/path/to/wapiti/
+```
 
 
 After doing this there will be no need to pass the wapiti path with
