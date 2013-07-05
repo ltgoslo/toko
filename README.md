@@ -59,11 +59,12 @@ In this mode toko expects a file to tokenize with several optional
 arguments
 
 
-TODO
+Tasks
 ----------
 
 - [ ] toko_sentence
 - [ ] train mode
+- [X] egg file
 
 Notes
 ----------
