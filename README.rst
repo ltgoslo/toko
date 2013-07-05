@@ -17,7 +17,7 @@ tokenizer.
 The package runs in three modes: (1) config (2) tokenize and (3)
 train.
 
----- config:
+---- config::
 To permanently set the path of Wapiti, you can use:
 python toko config --wapiti /full/path/to/wapiti
 
@@ -25,7 +25,7 @@ After doing this there will be no need to pass the wapiti path with
 the 'tokenize' mode, however if you haven't permanently set the path
 to wapiti you must pass the argument --wapiti. 
 
----- tokenize:
+---- tokenize::
 In this mode toko expects a file to tokenize with several optional
 arguments
 
