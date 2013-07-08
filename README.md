@@ -61,13 +61,17 @@ arguments.
     python toko tokenize file
 ```
 
+Usage
+------------
+Input examples:
+
 
 TODO
 ----------
 
 - [ ] toko_sentence
 - [ ] train mode
-- [X] egg file
+- [ X ] egg file
 
 Notes
 ----------
