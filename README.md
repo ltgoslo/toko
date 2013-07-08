@@ -83,8 +83,8 @@ fight
 
 If the input file name was input.txt, then the output file would be input.txt.tks
 
-Running modes
---------------
+
+### Running modes
 
 toko runs in three modes:
 
@@ -92,7 +92,7 @@ toko runs in three modes:
 *  tokenize 
 *  train
 
-### config
+#### config
 You can use the config mode to permanently set the path to Wapiti, as follows:
 ```sh
     python toko config --wapiti /full/path/to/wapiti/
@@ -104,13 +104,15 @@ the 'tokenize' mode, however if you haven't permanently set the path
 to wapiti you must pass the argument --wapiti.
 
 
-### tokenize
+#### tokenize
 
 In this mode toko expects a file to tokenize with several optional
 arguments.
 ```sh
     python toko tokenize file
 ```
+
+#### train
 
 Files
 ------------
