@@ -1,10 +1,11 @@
 toko
 ========
 
-toko is a machine learning based tokenization tool described in [Fares et al. 2013](http://link.springer.com/chapter/10.1007%2F978-3-642-37247-6_19).
+toko is a machine learning based tokenization tool (based on [Fares et al. 2013](http://link.springer.com/chapter/10.1007%2F978-3-642-37247-6_19)).
+toko introduces potential token boundaries, 
+then it uses pre-trained CRF model to classify the potential token boundaries.
 
-
-Prerequisites:
+Prerequisites
 --------------
 
 * Python (versions 2.6 and 2.7 recommended)
@@ -14,6 +15,7 @@ Prerequisites:
 Installation
 --------------
 You can install toko as a python package (site-package) using the egg file already built or build toko yourself.
+
 To build toko as an egg file, do (in the toko dir):
 ```sh
     python setup.py bdist_egg
@@ -24,22 +26,69 @@ Then you can install the egg file using easy_install (for example). Assuming tha
 ```sh
     easy_install --install-dir /home/user/mypythonpackages/ the-toko-egg-file.egg
 ```
-If you cannot build the egg file, you can install the egg file provided with toko (you only need to run the previous command).
+To install the egg file provided with toko, you only need to run the previous command.
 
 
-To use (with caution), simply do::
+Usage
+------------
+A Python script named *toko* will be installed together with the toko package (in your Python site-packages directory).
+You can either use the *toko* script or import toko to your Python project or script.
 
+To use the *toko* script, simply do:
+```sh
+    python toko tokenize file --wapiti /home/user/wapiti/
+```
+
+To call toko from another Python script:
+```python
     >>> import toko
-    >>> toko.wpclassify.wp_classify_file()
-    >>> toko.tokenize_sentence()
+    >>> toko.wpclassify.toko_file(file_to_be_tokenized, full_wapiti_path, wapiti_model, delimiter)
+```
+
+
+### Input
+The input files (to be tokenized) can be formatted in two ways:
+
+1. Sentence ID and sentence per line:
+```
+    22200014        The complicated language in the huge new law has muddied the fight.
+```
+
+2. One sentence per line:
+```
+    The complicated language in the huge new law has muddied the fight.
+```
+
+### Output
+The default output of toko is a file containing one token per line and sentences are separated by newlines.
+
+```
+The
+complicated
+language
+in
+the
+huge
+new
+law
+has
+muddied
+the
+fight
+.
+
+```
+
+If the input file name was input.txt, then the output file would be input.txt.tks
 
 Running modes
 --------------
 
-toko runs in three modes: 
-    *  config 
-    *  tokenize 
-    *  train
+toko runs in three modes:
+
+*  config 
+*  tokenize 
+*  train
 
 ### config
 You can use the config mode to permanently set the path to Wapiti, as follows:
@@ -61,19 +110,32 @@ arguments.
     python toko tokenize file
 ```
 
+Files
+------------
+```
++---models
+|       - ptb.model
++---data
+|       - test.raw.tokens
+|       - test.raw
++---toko
+|       - wpclassify.py
+|       - toko.py
+|       - subtoken.py
+|       - __init__.py
+```
 
 TODO
 ----------
 
 - [ ] toko_sentence
 - [ ] train mode
-- [X] egg file
+- [ X ] egg file
 
 Notes
 ----------
-1) Please use absolute paths all the time, especially for Wapiti
-models because the Wapiti path might be different from that of the
-tokenizer.
+Please use absolute paths, especially for Wapiti
+models because the Wapiti path might be different from that of toko.
 
 
 References
