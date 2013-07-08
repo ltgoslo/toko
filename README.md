@@ -13,16 +13,16 @@ Prerequisites:
 
 Installation
 --------------
-You can easily install toko as a python package (site-package) using the egg file already built or build the toko yourself.
-To build toko as an egg file, do (in toko dir):
+You can install toko as a python package (site-package) using the egg file already built or build toko yourself.
+To build toko as an egg file, do (in the toko dir):
 ```sh
     python setup.py bdist_egg
 ```
 
-Then you can install the egg file using easy_install (for example). Assuming that you have already set the PYTHONPATH (in your .bashrc) to /home/user/mypythonpackages/, do:
+Then you can install the egg file using easy_install (for example). Assuming that you have already set PYTHONPATH (in your .bashrc) to /home/user/mypythonpackages/, do:
 
 ```sh
-    easy_install --install-dir /home/user/mypythonpackages/ dist/the-toko-egg-file.egg
+    easy_install --install-dir /home/user/mypythonpackages/ the-toko-egg-file.egg
 ```
 If you cannot build the egg file, you can install the egg file provided with toko (you only need to run the previous command).
 
@@ -42,13 +42,13 @@ toko runs in three modes:
     *  train
 
 ### config
-To permanently set the path of Wapiti, you can use:
+You can use the config mode to permanently set the path to Wapiti, as follows:
 ```sh
     python toko config --wapiti /full/path/to/wapiti/
 ```
 
 
-After doing this there will be no need to pass the wapiti path with
+After doing this there will be no need to pass the wapiti path in
 the 'tokenize' mode, however if you haven't permanently set the path
 to wapiti you must pass the argument --wapiti.
 
@@ -56,10 +56,13 @@ to wapiti you must pass the argument --wapiti.
 ### tokenize
 
 In this mode toko expects a file to tokenize with several optional
-arguments
+arguments.
+```sh
+    python toko tokenize file
+```
 
 
-Tasks
+TODO
 ----------
 
 - [ ] toko_sentence
