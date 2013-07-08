@@ -145,7 +145,7 @@ class Subtoken(object):
         if len(self.__spaces) == ( len(self.__sub_tokens) - 1 ):
             self.__spaces.append(0)
         elif len(self.__spaces) <> len(self.__sub_tokens):
-            raise Exception, 'Something went wrong in subtokenizing, token.py'
+            raise Exception, 'Error in feature extraction, please report the problem'
 
 
         # ===========================

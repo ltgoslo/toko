@@ -18,7 +18,7 @@ def toko_file(file_name, wapiti_path, wp_model, delimiter):
     '''
     wp_file = label_subtokenize_file(file_name)
     result = call_wapiti(wp_file, wapiti_path, wp_model)
-    write_output(file_name+".tokens", result, delimiter)
+    write_output(file_name+".tks", result, delimiter)
     os.remove(wp_file)
 
 
