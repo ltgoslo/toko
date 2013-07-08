@@ -2,8 +2,8 @@ toko
 ========
 
 toko is a machine learning based tokenization tool (based on [Fares et al. 2013](http://link.springer.com/chapter/10.1007%2F978-3-642-37247-6_19)).
-toko introduces potential token boundaries, 
-then it uses pre-trained CRF model to classify the potential token boundaries.
+In brief, toko introduces potential token boundaries, 
+then it uses a pre-trained CRF model to classify the potential token boundaries.
 
 Prerequisites
 --------------
@@ -14,17 +14,18 @@ Prerequisites
 
 Installation
 --------------
-You can install toko as a python package (site-package) using the egg file already built or build toko yourself.
+You can install toko as a python package (site-package) using the egg file (toko-0.1.0-py2.7.egg) or build toko yourself.
 
 To build toko as an egg file, do (in the toko dir):
 ```sh
     python setup.py bdist_egg
 ```
 
-Then you can install the egg file using easy_install (for example). Assuming that you have already set PYTHONPATH (in your .bashrc) to /home/user/mypythonpackages/, do:
+Then you can install the egg file using easy_install (for example). 
+Assuming that you have already set PYTHONPATH (in your .bashrc) to /home/user/mypythonpackages/, do:
 
 ```sh
-    easy_install --install-dir /home/user/mypythonpackages/ the-toko-egg-file.egg
+    easy_install --install-dir /home/user/mypythonpackages/ toko-0.1.0-py2.7.egg
 ```
 To install the egg file provided with toko, you only need to run the previous command.
 
@@ -45,7 +46,7 @@ To call toko from another Python script:
     >>> wpclassify.toko_file(file_to_be_tokenized, full_wapiti_path, wapiti_model, delimiter)
     >>> wpclassify.toko_sentence("sentence", "/full/path/to/wapiti/", "/full/path/to/wapiti/model/ptb.model")
 ```
-toko provides two functions for tokenization ___toko_file___ and ___toko_sentence___ (for details see toko/wpclassify.py).
+toko provides two functions for tokenization __toko_file__ and __toko_sentence__ (for details see toko/wpclassify.py).
 
 
 ### Input
