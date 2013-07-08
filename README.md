@@ -41,15 +41,17 @@ To use the *toko* script, simply do:
 
 To call toko from another Python script:
 ```python
-    >>> import toko
-    >>> toko.wpclassify.toko_file(file_to_be_tokenized, full_wapiti_path, wapiti_model, delimiter)
+    >>> from toko import wpclassify
+    >>> wpclassify.toko_file(file_to_be_tokenized, full_wapiti_path, wapiti_model, delimiter)
+    >>> wpclassify.toko_sentence("sentence", "/full/path/to/wapiti/", "/full/path/to/wapiti/model/ptb.model")
 ```
+toko provides two functions for tokenization ___toko_file___ and ___toko_sentence___ (for details see toko/wpclassify.py).
 
 
 ### Input
-The input files (to be tokenized) can be formatted in two ways:
+The input files can be formatted in two ways:
 
-1. Sentence ID and sentence per line:
+1. Sentence-ID \tab sentence per line:
 ```
     22200014        The complicated language in the huge new law has muddied the fight.
 ```
@@ -125,12 +127,12 @@ Files
 |       - __init__.py
 ```
 
-TODO
+Tasks
 ----------
 
-- [ ] toko_sentence
+- [x] toko_sentence
 - [ ] train mode
-- [ X ] egg file
+- [x] egg file
 
 Notes
 ----------
