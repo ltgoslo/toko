@@ -21,7 +21,6 @@ def toko_file(file_name, wapiti_path, wp_model, delimiter):
     write_output(file_name+".tks", result, delimiter)
     os.remove(wp_file)
 
-
 def label_subtokenize_file(file_name):
     '''
     This method produces subtokens for the 'tokenize' mode (for labeling)
@@ -136,5 +135,66 @@ def write_output(out_file_name, wapiti_output, delimiter):
                 out_file.write(delimiter)
                 word = ""
                 
-    out_file.close()
+    out_file.close()        
+
+
+
+#############
+### tokenizing one setence at a time
+#############
+
+def toko_sentence(sentence, wapiti_path, wp_model):
+    '''
+    tokenizes one sentence at a time. the method returns a list
+    of tokens
+    '''
+    wp_file = label_subtokenize_sentence(sentence)
+    result = call_wapiti(wp_file, wapiti_path, wp_model)
+    list_of_tokens = write_output_sentence(result)
+    os.remove(wp_file)
+    return list_of_tokens
+
+
+def label_subtokenize_sentence(sentence):
+
+    wp_file_name = toko_path + "tmp.subtks"
+
+    subtk_file = open(wp_file_name, "w")
+    t = Subtoken(sentence)
+    subtokens, categories, spaces = t.subtokenize()
+            
+    for i in range(len(subtokens)):
+        subtk_line = "1" + '\t' + \
+            subtokens[i] + '\t' + str(spaces[i]) + \
+            '\t'+ categories[i] + '\t' + str(len(subtokens[i])) +\
+            '\t'
+        subtk_file.write(subtk_line)        
+        subtk_file.write('\n')
         
+    subtk_file.write('\n')
+    
+    subtk_file.close()
+    return wp_file_name
+
+
+def write_output_sentence(wapiti_output):
+    '''
+    reads the output of wapiti and returns a list of tokens.    
+    '''
+
+    output = list()
+    word = ""
+
+    for l in wapiti_output:
+        columns = l.split("\t")               
+        
+        if len(columns) > 2:
+            word += columns[1]
+            if columns[2] == "1": #if the word is followed by a whitespace
+                word += " "
+            
+            if columns[-1][0:-1] == "SPLIT":                
+                output.append(word)                
+                word = ""
+    
+    return output
