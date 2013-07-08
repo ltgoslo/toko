@@ -1,7 +1,7 @@
 toko
 ========
 
-toko is a machine learning based tokenization tool described in [Fares et al. 2013](http://link.springer.com/chapter/10.1007%2F978-3-642-37247-6_19).
+toko is a machine learning based tokenization tool (based on [Fares et al. 2013](http://link.springer.com/chapter/10.1007%2F978-3-642-37247-6_19)).
 
 
 Prerequisites:
@@ -14,6 +14,7 @@ Prerequisites:
 Installation
 --------------
 You can install toko as a python package (site-package) using the egg file already built or build toko yourself.
+
 To build toko as an egg file, do (in the toko dir):
 ```sh
     python setup.py bdist_egg
@@ -24,7 +25,38 @@ Then you can install the egg file using easy_install (for example). Assuming tha
 ```sh
     easy_install --install-dir /home/user/mypythonpackages/ the-toko-egg-file.egg
 ```
-If you cannot build the egg file, you can install the egg file provided with toko (you only need to run the previous command).
+To install the egg file provided with toko, you only need to run the previous command.
+
+
+Usage
+------------
+A Python script named *toko* will be installed together with the toko package (in your Python site-packages directory).
+You can either use the *toko* script or import toko to your Python project or script.
+
+To use the *toko* script, simply do:
+```sh
+    python toko tokenize file --wapiti /home/user/wapiti/
+```
+
+To call toko from another Python script:
+```python
+    >>> import toko
+    >>> toko.wpclassify.toko_file(file_to_be_tokenized, full_wapiti_path, wapiti_model, delimiter)
+```
+
+
+### Input
+The input files (to be tokenized) can be formatted in two ways:
+
+1. Sentence ID and sentence per line:
+```
+    22200014        The complicated language in the huge new law has muddied the fight.
+```
+
+2. One sentence per line:
+```
+    The complicated language in the huge new law has muddied the fight.
+```
 
 
 To use (with caution), simply do::
@@ -36,10 +68,11 @@ To use (with caution), simply do::
 Running modes
 --------------
 
-toko runs in three modes: 
-    *  config 
-    *  tokenize 
-    *  train
+toko runs in three modes:
+
+*  config 
+*  tokenize 
+*  train
 
 ### config
 You can use the config mode to permanently set the path to Wapiti, as follows:
@@ -60,10 +93,6 @@ arguments.
 ```sh
     python toko tokenize file
 ```
-
-Usage
-------------
-Input examples:
 
 
 TODO
