@@ -2,9 +2,10 @@ toko
 ========
 
 toko is a machine learning based tokenization tool (based on [Fares et al. 2013](http://link.springer.com/chapter/10.1007%2F978-3-642-37247-6_19)).
+toko introduces potential token boundaries, 
+then it uses pre-trained CRF model to classify the potential token boundaries.
 
-
-Prerequisites:
+Prerequisites
 --------------
 
 * Python (versions 2.6 and 2.7 recommended)
@@ -58,12 +59,27 @@ The input files (to be tokenized) can be formatted in two ways:
     The complicated language in the huge new law has muddied the fight.
 ```
 
+### Output
+The default output of toko is a file containing one token per line and sentences are separated by newlines.
 
-To use (with caution), simply do::
+```
+The
+complicated
+language
+in
+the
+huge
+new
+law
+has
+muddied
+the
+fight
+.
 
-    >>> import toko
-    >>> toko.wpclassify.wp_classify_file()
-    >>> toko.tokenize_sentence()
+```
+
+If the input file name was input.txt, then the output file would be input.txt.tks
 
 Running modes
 --------------
@@ -94,6 +110,20 @@ arguments.
     python toko tokenize file
 ```
 
+Files
+------------
+```
++---models
+|       - ptb.model
++---data
+|       - test.raw.tokens
+|       - test.raw
++---toko
+|       - wpclassify.py
+|       - toko.py
+|       - subtoken.py
+|       - __init__.py
+```
 
 TODO
 ----------
@@ -104,9 +134,8 @@ TODO
 
 Notes
 ----------
-1) Please use absolute paths all the time, especially for Wapiti
-models because the Wapiti path might be different from that of the
-tokenizer.
+Please use absolute paths, especially for Wapiti
+models because the Wapiti path might be different from that of toko.
 
 
 References
