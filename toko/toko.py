@@ -53,16 +53,16 @@ def main():
                            help='config, train or tokenize')
 
     argparser.add_argument('file', nargs='*',
-                           help='File(s) to tokenize')
+                           help='file(s) to tokenize')
 
     argparser.add_argument('--delimiter', default='\n',
-                           help='To specify a delimiter for token boundaries (default: newline)')
+                           help='specify a delimiter for token boundaries (default: newline)')
 
     argparser.add_argument('--model', 
                            help='tokenization model (Wapiti model)')
 
     argparser.add_argument('--wapiti',
-                           help='Wapiti full path')
+                           help='full path to Wapiti')
 
 
     args = argparser.parse_args()
