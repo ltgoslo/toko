@@ -37,7 +37,7 @@ You can either use the *toko* script or import toko to your Python project or sc
 
 To use the *toko* script, simply do:
 ```sh
-    python toko tokenize file --wapiti /home/user/wapiti/
+    python toko tokenize file-name --wapiti /home/user/wapiti/
 ```
 
 To call toko from another Python script:
@@ -46,7 +46,8 @@ To call toko from another Python script:
     >>> wpclassify.toko_file(file_to_be_tokenized, full_wapiti_path, wapiti_model, delimiter)
     >>> wpclassify.toko_sentence("sentence", "/full/path/to/wapiti/", "/full/path/to/wapiti/model/ptb.model")
 ```
-toko provides two functions for tokenization __toko_file__ and __toko_sentence__ (for details see toko/wpclassify.py).
+toko provides two functions for tokenization __toko_file__ and __toko_sentence__ where the former tokenizes
+a file and the latter tokenizes a sentence and returns a list of tokens (for more details see toko/wpclassify.py).
 
 
 ### Input
