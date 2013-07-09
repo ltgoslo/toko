@@ -115,6 +115,7 @@ arguments.
 ```
 
 #### train
+The train mode only prepares training data but the actual training needs to be done using Wapiti.
 
 Files
 ------------
