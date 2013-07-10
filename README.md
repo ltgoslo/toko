@@ -22,7 +22,7 @@ To build toko as an egg file, do (in the toko dir):
     python setup.py bdist_egg
 ```
 
-Then you can install the egg file using easy_install (for example). 
+Then you can install the egg file using [easy_install](http://peak.telecommunity.com/DevCenter/EasyInstall) (for example). 
 Assuming that you have already set PYTHONPATH (in your .bashrc) to /home/user/mypythonpackages/, do:
 
 ```sh
@@ -33,6 +33,11 @@ To install the egg file provided with toko, you only need to run the last comman
 
 Usage
 ------------
+The toko package can be used in two ways:
+1. The *toko* script
+2. from toko import wpclassify
+
+
 A Python script named *toko* will be installed together with the toko package (in your Python site-packages directory).
 You can either use the *toko* script or import toko to your Python project or script.
 
