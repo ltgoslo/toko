@@ -104,24 +104,26 @@ toko runs in three modes:
 *  train
 
 #### config
-You can use the config mode to permanently set the path to Wapiti, as follows:
+The only use of the config mode is to permanently set the path to Wapiti, as follows:
 ```sh
     python toko config --wapiti /full/path/to/wapiti/
 ```
 
 
-After doing this there will be no need to pass the wapiti path in
+After doing this there will be no need to pass the Wapiti path in
 the 'tokenize' mode, however if you haven't permanently set the path
 to wapiti you must pass the argument --wapiti.
 
 
 #### tokenize
 
-In this mode toko expects a file to tokenize with several optional
+The *tokenize* mode toko expects a file to tokenize with several optional
 arguments.
 ```sh
-    python toko tokenize file
+    python toko tokenize file --delimiter " | " --model /home/user/toko/models/ptb.model
 ```
+
+The --delimiter and --model arguments are optional ones.
 
 #### train
 The train mode only prepares training data but the actual training needs to be done using Wapiti.
