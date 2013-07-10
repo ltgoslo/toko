@@ -60,7 +60,7 @@ For more details see toko/wpclassify.py.
 
 
 
-### Input
+### Input & Output
 The input files can be formatted in two ways:
 
 1. Sentence-ID \tab sentence per line:
@@ -73,7 +73,6 @@ The input files can be formatted in two ways:
     The complicated language in the huge new law has muddied the fight.
 ```
 
-### Output
 The default output of toko is a file containing one token per line and sentences are separated by newlines.
 
 ```
