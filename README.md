@@ -52,8 +52,12 @@ To call toko from another Python script:
     >>> wpclassify.toko_file(file_to_be_tokenized, full_wapiti_path, wapiti_model, delimiter)
     >>> wpclassify.toko_sentence("sentence", "/full/path/to/wapiti/", "/full/path/to/wapiti/model/ptb.model")
 ```
-toko provides two functions for tokenization __toko_file__ and __toko_sentence__ where the former tokenizes
-a file and the latter tokenizes a sentence and returns a list of tokens (for more details see toko/wpclassify.py).
+toko provides two functions for tokenization:
+*   __toko_file__:  takes a file as an input and writes the output into another file
+*   __toko_sentence__: takes a sentence (string) and returns a list of tokens (strings) 
+
+For more details see toko/wpclassify.py.
+
 
 
 ### Input
