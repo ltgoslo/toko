@@ -14,7 +14,8 @@ Prerequisites
 
 Installation
 --------------
-You can install toko as a python package (site-package) using the egg file (toko-0.1.0-py2.7.egg) or build toko yourself.
+toko can be installed as a python package (site-package) using the egg file: *toko-0.1.0-py2.7.egg*.
+One can also build the egg file first and then install it.
 
 To build toko as an egg file, do (in the toko dir):
 ```sh
