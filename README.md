@@ -27,7 +27,7 @@ Assuming that you have already set PYTHONPATH (in your .bashrc) to /home/user/my
 ```sh
     easy_install --install-dir /home/user/mypythonpackages/ toko-0.1.0-py2.7.egg
 ```
-To install the egg file provided with toko, you only need to run the previous command.
+To install the egg file provided with toko, you only need to run the last command above.
 
 
 Usage
