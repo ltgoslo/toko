@@ -39,16 +39,12 @@ To install the egg file provided with toko, you only need to run the last comman
 
 Usage
 ------------
-The toko package can be used in two ways:
-
-1. The *toko* script
-2. from toko import wpclassify
+Once installed, the toko package can be used in two ways either through running the *[toko]* script
+or by importing toko functions to your code.
 
 
-A Python script named *toko* will be installed together with the toko
+A Python script named *[toko]* will be installed together with the toko
 package (in your Python site-packages directory).
-You can either use the *toko* script or import toko to your Python
-project or script.
 
 To use the *toko* script, simply do:
 ```sh
@@ -61,11 +57,11 @@ To call toko from another Python script:
     >>> wpclassify.toko_file(file_to_be_tokenized, full_wapiti_path, wapiti_model, delimiter)
     >>> wpclassify.toko_sentence("sentence", "/full/path/to/wapiti/", "/full/path/to/wapiti/model/ptb.model")
 ```
-toko provides two functions for tokenization:
+toko provides two main functions for tokenization:
 *   __toko_file__:  takes a file as an input and writes the output into another file
 *   __toko_sentence__: takes a sentence (string) and returns a list of tokens (strings) 
 
-For more details see [wpclassify.py](toko/wpclassify.py).
+For more details see [wpclassify.py](toko/wpclassify.py) and [wptrain.py](toko/wptrain.py).
 
 
 
@@ -107,7 +103,7 @@ named input.txt.tks
 
 ### Running modes
 
-toko runs in three modes:
+The [toko] script can be used in three modes:
 
 *  config 
 *  tokenize 
@@ -127,13 +123,18 @@ as follows:
 
 #### tokenize
 
-The *tokenize* mode toko expects a file to tokenize with several optional
-arguments.
+In the *tokenize* mode, toko expects a (set of) file(s) 
+formatted as described [above](#input--output) to tokenize with several optional
+arguments:
 ```sh
-    python toko tokenize file --delimiter " | " --model /home/user/toko/models/ptb.model
+    python toko tokenize file --model /home/user/toko/models/ptb.model
 ```
 
---delimiter and --model are optional arguments.
+--model is an optional argument that defines which (Wapiti) tokenization model to use.
+For more details on the arguments:
+```sh
+	python toko -h
+```
 
 #### train
 The train mode only prepares training data but the actual training
@@ -143,7 +144,7 @@ subtokens of the 'gold' tokens.
 
 toko, in the train mode, expects a file with one 'gold' token per line
 and sentence are separated with newlines. However, Sentence-ID \tab
-token is also allowed, as described [above](#input--output]).
+token is also allowed, as described [above](#input--output).
 
 To prepare the training data:
 ```sh
@@ -154,12 +155,12 @@ The output is saved in a file named myfilename.wptks
 
 Files
 ------------
+toko's egg contains the following files:
 ```
 +---models
 |       - ptb.model
 +---data
-|       - test.raw.tokens
-|       - test.raw
+|       - example.raw
 +---toko
 |       - wpclassify.py
 |       - wptrain.py
@@ -216,3 +217,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
+
+
+[toko]: toko/toko.py
