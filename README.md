@@ -1,9 +1,11 @@
 toko
 ========
 
-toko is a machine learning based tokenization tool (based on [Fares et al. 2013](http://link.springer.com/chapter/10.1007%2F978-3-642-37247-6_19)).
-In brief, toko introduces potential token boundaries, 
-then it uses a pre-trained CRF model to classify the potential token boundaries.
+toko is a machine learning based tokenization tool (based on [Fares et
+al. 2013](http://link.springer.com/chapter/10.1007%2F978-3-642-37247-6_19)).
+In brief, toko introduces potential token boundaries (so-called
+subtokens), then it uses a pre-trained CRF model to classify the
+potential token boundaries.
 
 Prerequisites
 --------------
@@ -14,7 +16,8 @@ Prerequisites
 
 Installation
 --------------
-toko can be installed as a python package (site-package) using the egg file: *toko-0.1.0-py2.7.egg*.
+toko can be installed as a python package (site-package) using the egg
+file: *toko-0.1.0-py2.7.egg*.
 One can also build the egg file first and then install it.
 
 To build toko as an egg file, do (in the toko dir):
@@ -22,8 +25,9 @@ To build toko as an egg file, do (in the toko dir):
     python setup.py bdist_egg
 ```
 
-Then you can install the egg file using [easy_install](http://peak.telecommunity.com/DevCenter/EasyInstall) (for example). 
-Assuming that you have already set PYTHONPATH (in your .bashrc) to /home/user/mypythonpackages/, do:
+Then you can install the egg file using [easy_install](http://peak.telecommunity.com/DevCenter/EasyInstall). 
+Assuming that you have already set PYTHONPATH (in your .bashrc, for
+example) to /home/user/mypythonpackages/, do:
 
 ```sh
     easy_install --install-dir /home/user/mypythonpackages/ toko-0.1.0-py2.7.egg
@@ -39,8 +43,10 @@ The toko package can be used in two ways:
 2. from toko import wpclassify
 
 
-A Python script named *toko* will be installed together with the toko package (in your Python site-packages directory).
-You can either use the *toko* script or import toko to your Python project or script.
+A Python script named *toko* will be installed together with the toko
+package (in your Python site-packages directory).
+You can either use the *toko* script or import toko to your Python
+project or script.
 
 To use the *toko* script, simply do:
 ```sh
@@ -93,7 +99,8 @@ fight
 
 ```
 
-If the input file name was input.txt, then the output file would be input.txt.tks
+If the input file name was input.txt, then the output file would be
+named input.txt.tks
 
 
 ### Running modes
@@ -105,15 +112,15 @@ toko runs in three modes:
 *  train
 
 #### config
-The only use of the config mode is to permanently set the path to Wapiti, as follows:
+The only use of the *config* mode is to permanently set the path to
+Wapiti.
+In order to avoid passing the argument --wapiti every time you want to
+tokenize a file (or sentence), you can permanently set the Wapiti path
+as follows:
 ```sh
     python toko config --wapiti /full/path/to/wapiti/
 ```
 
-
-After doing this there will be no need to pass the Wapiti path in
-the 'tokenize' mode, however if you haven't permanently set the path
-to wapiti you must pass the argument --wapiti.
 
 
 #### tokenize
@@ -124,23 +131,24 @@ arguments.
     python toko tokenize file --delimiter " | " --model /home/user/toko/models/ptb.model
 ```
 
-The --delimiter and --model arguments are optional ones.
+--delimiter and --model are optional arguments.
 
 #### train
 The train mode only prepares training data but the actual training
 needs to be done using Wapiti (we provide the feature template used to
 train our PTB model). In other words, the 'train' mode provides the
-subtokens of 'gold' tokens.
+subtokens of the 'gold' tokens.
 
 toko, in the train mode, expects a file with one 'gold' token per line
 and sentence are separated with newlines. However, Sentence-ID \tab
-token is also allowed.
+token is also allowed (as described (above)[#input--output]).
 
 To prepare the training data:
 ```sh
-	python toko train file-name
+	python toko train myfilename
 ```
 
+The output is saved in a file named myfilename.wptks
 
 Files
 ------------
@@ -158,12 +166,7 @@ Files
 |       - __init__.py
 ```
 
-Tasks
-----------
 
-- [x] toko_sentence
-- [ ] train mode
-- [x] egg file
 
 Notes
 ----------
