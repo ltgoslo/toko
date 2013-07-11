@@ -162,9 +162,9 @@ Files
 |       - test.raw
 +---toko
 |       - wpclassify.py
+|       - wptrain.py
 |       - toko.py
 |       - subtoken.py
-|	- wptrain.py
 |       - __init__.py
 ```
 
