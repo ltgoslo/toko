@@ -34,6 +34,7 @@ To install the egg file provided with toko, you only need to run the last comman
 Usage
 ------------
 The toko package can be used in two ways:
+
 1. The *toko* script
 2. from toko import wpclassify
 
