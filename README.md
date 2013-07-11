@@ -127,7 +127,20 @@ arguments.
 The --delimiter and --model arguments are optional ones.
 
 #### train
-The train mode only prepares training data but the actual training needs to be done using Wapiti.
+The train mode only prepares training data but the actual training
+needs to be done using Wapiti (we provide the feature template used to
+train our PTB model). In other words, the 'train' mode provides the
+subtokens of 'gold' tokens.
+
+toko, in the train mode, expects a file with one 'gold' token per line
+and sentence are separated with newlines. However, Sentence-ID \tab
+token is also allowed.
+
+To prepare the training data:
+```sh
+	python toko train file-name
+```
+
 
 Files
 ------------
@@ -141,6 +154,7 @@ Files
 |       - wpclassify.py
 |       - toko.py
 |       - subtoken.py
+|	- wptrain.py
 |       - __init__.py
 ```
 

@@ -7,6 +7,7 @@ except ImportError:
     print "argparse is required to run this program"
     exit(1)
 from wpclassify import toko_file
+from wptrain import prepare_file
 import sys
 import inspect
 import os
@@ -73,7 +74,8 @@ def main():
         wpconfig(args.wapiti)
 
     elif args.mode.lower() == "train":
-        print "produce training files"
+        for input_file in args.file:
+            prepare_file(input_file)
 
     elif args.mode.lower() == "tokenize":
         for input_file in args.file:
