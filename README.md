@@ -141,7 +141,7 @@ subtokens of the 'gold' tokens.
 
 toko, in the train mode, expects a file with one 'gold' token per line
 and sentence are separated with newlines. However, Sentence-ID \tab
-token is also allowed (as described (above)[#input--output]).
+token is also allowed (as described (above)[input--output]).
 
 To prepare the training data:
 ```sh
