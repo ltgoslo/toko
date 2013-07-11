@@ -34,6 +34,8 @@ example) to /home/user/mypythonpackages/, do:
 ```
 To install the egg file provided with toko, you only need to run the last command above.
 
+*Note*: Of course one can use toko without installing it by running the script [toko.py](toko/toko.py).
+
 
 Usage
 ------------
@@ -63,7 +65,7 @@ toko provides two functions for tokenization:
 *   __toko_file__:  takes a file as an input and writes the output into another file
 *   __toko_sentence__: takes a sentence (string) and returns a list of tokens (strings) 
 
-For more details see toko/wpclassify.py.
+For more details see [wpclassify.py](toko/wpclassify.py).
 
 
 
@@ -141,7 +143,7 @@ subtokens of the 'gold' tokens.
 
 toko, in the train mode, expects a file with one 'gold' token per line
 and sentence are separated with newlines. However, Sentence-ID \tab
-token is also allowed (as described (above)[input--output]).
+token is also allowed, as described [above](#input--output]).
 
 To prepare the training data:
 ```sh
